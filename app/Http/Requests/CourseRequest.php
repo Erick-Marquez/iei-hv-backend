@@ -11,7 +11,7 @@ class CourseRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
@@ -21,18 +21,18 @@ class CourseRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'name' => 'required|unique:courses,name'
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [
 
-            'name.required' => 'La descripcion es requerida.',
+            'name.required' => 'El nombre es requerido.',
             'name.unique' => 'Ya existe el curso ingresado.',
 
         ];
