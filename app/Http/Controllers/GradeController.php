@@ -13,7 +13,10 @@ class GradeController extends Controller
      */
     public function index()
     {
-        $grades = Grade::all();
+        $grades = Grade::included()
+                        ->filter()
+                        ->sort()
+                        ->getOrPaginate();
         return GradeResource::collection($grades);
     }
 
